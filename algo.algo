@@ -1,0 +1,31 @@
+ALGORITHM types
+VAR
+  input:STRING;
+  length_sentence, Number_of_words,number_of_vowels :INTEGER.
+BEGIN  
+//virfy that the sentence ends with .
+REPEAT
+    write("whrite a sentence that ends with a point");
+     Read(input);
+ UNTIL (   input[input.length] = "." )
+//the number of characters other then the dots
+   length_sentence := input.length - 1; 
+// number of words are calculated by summing the number of "" between the words +1 for the last word witch doesend with . not "" 
+    Number_of_words:= 1;
+   FOR i FROM 1 TO input.length STEP step DO
+   IF (input[i]= "") THEN
+    Number_of_words ++ ;
+   END_IF
+   
+  IF ( input[i] = " A" AND "E"AND " I"AND  "O"AND  "U" OR " a" AND "e"AND " i"AND  "o"AND  "u") THEN
+    number_of_vowels ++ ;
+   END_IF
+
+   END_FOR
+
+   whrite(length_sentence);
+   whrite( Number_of_words);
+   whrite(  number_of_vowels);
+
+
+END
