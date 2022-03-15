@@ -1,0 +1,191 @@
+
+//solution 1 with arr  problem 1 
+ALGORITHM problem_1
+VAR
+   tab1 ,tab2,  : ARRAY_OF INTEGER[100];
+  set1l,set2l,sum_commun ,sum, sumtab1, sumtab2: INTEGER;
+BEGIN
+
+  //remplisage des input set 1 et 2
+  write ("donner la langueur du 1er set ");
+  Read(set1l);
+
+  FOR i FROM 0 TO set1 STEP 1  DO
+   write("entrer le continue du 1er tableaux");
+     Read(tab1[i]);// insert from user
+   END_FOR
+
+  write ("donner la langueur du 2eme set ");
+  Read(set2l);
+
+   FOR i FROM 0 TO set2l STEP 1  DO
+   write("entrer le continue du 1er tableaux");
+     Read(tab2[i]);// insert from user
+   END_FOR
+// debut 
+  sum=0;
+  FOR i FROM 0 TO set1l STEP 1  DO
+   sumtab1+= tab1[i];//somme des element du tableau du set1
+   END_FOR
+   FOR j FROM 0 TO set2l STEP 1  DO
+   sumtab2+= tab2[j];//somme des element du tableau du set2
+    FOR i FROM 0 TO set1l STEP 1  DO
+    IF (tab1[i]== tab2[j]) THEN
+        sum_commun+=tab1[i]
+    END_IF
+   END_FOR
+  END_FOR
+  sum = sumtab1+ sumtab2 - (sum_commun*2); // la somme de tous les elements du set 1 et set 2 - la somm des elemnt commun *2
+  Read(sum);
+  
+  //solution 2 with arr  problem 1 
+ALGORITHM problem_1
+VAR
+   tab1 ,tab2,  : ARRAY_OF INTEGER[100];
+  set1l,set2l,sum : INTEGER;
+BEGIN
+
+  //remplisage des input set 1 et 2
+  write ("donner la langueur du 1er set ");
+  Read(set1l);
+
+  FOR i FROM 0 TO set1 STEP 1  DO
+   write("entrer le continue du 1er tableaux");
+     Read(tab1[i]);// insert from user
+   END_FOR
+
+  write ("donner la langueur du 2eme set ");
+  Read(set2l);
+
+   FOR i FROM 0 TO set2l STEP 1  DO
+   write("entrer le continue du 1er tableaux");
+     Read(tab2[i]);// insert from user
+   END_FOR
+// debut 
+  sum=0;
+   FOR j FROM 0 TO set2l STEP 1  DO 
+    FOR i FROM 0 TO set1l STEP 1  DO
+   
+       IF (tab1[i]=! tab2[j]) THEN
+           test = true;
+       ELSE
+            test = false;
+       END_IF
+   END_FOR
+   IF (test = true;) THEN
+       sum+=tab2[j];
+   END_IF
+  END_FOR
+  Read(sum);
+  
+// solution 3 problem 1 hashtab **********************
+  ALGORITHM problem_1
+VAR
+     htab1,htab2 : HASH_TABLE<INTEGER,STRING>;
+  set1l,set2l,sum : INTEGER;
+BEGIN
+
+  //remplisage des input htab 1 et 2
+  write ("donner la langueur du 1er set ");
+  Read(set1l);
+
+  FOR i FROM 0 TO set1 STEP 1  DO
+   write("entrer le continue du 1er tableaux");
+     Read(input);// insert from user
+    htab1.insert(i,input);
+   END_FOR
+
+  write ("donner la langueur du 2eme set ");
+  Read(set2l);
+
+   FOR i FROM 0 TO set2l STEP 1  DO
+   Read(input);// insert from user
+    htab2.insert(i,input);
+   END_FOR
+// debut 
+ FOR i FROM 0 TO set2l STEP 1  DO
+  FOR j FROM 0 TO set1l STEP 1  DO
+  IF (htab1.get(i)=! htab2.grt(j)) THEN
+      test=true;
+  ELSE
+            test = false;
+       END_IF
+   END_FOR
+   IF (test = true;) THEN
+       sum+=htab1.get(i);
+   END_IF
+   END_FOR
+
+   Read(sum);
+  
+END
+// problem2 solution 1 **********************************
+
+ALGORITHM problem_1
+VAR
+   tab1 ,tab2,  : ARRAY_OF INTEGER[100];
+  set1l,set2l,sum : INTEGER;
+BEGIN
+
+  //remplisage des input set 1 et 2
+  write ("donner la langueur du 1er set ");
+  Read(set1l);
+
+  FOR i FROM 0 TO set1 STEP 1  DO
+   write("entrer le continue du 1er tableaux");
+     Read(tab1[i]);// insert from user
+   END_FOR
+
+  write ("donner la langueur du 2eme set ");
+  Read(set2l);
+
+   FOR i FROM 0 TO set2l STEP 1  DO
+   write("entrer le continue du 1er tableaux");
+     Read(tab2[i]);// insert from user
+   END_FOR
+// debut 
+  sum=0;
+   FOR j FROM 0 TO set2l STEP 1  DO 
+    FOR i FROM 0 TO set1l STEP 1  DO
+   
+       IF (tab1[i]== tab2[j]) THEN
+           sum+=tab2[j];
+      
+       END_IF
+   END_FOR
+  END_FOR
+  Read(sum*2);
+  END
+  // problem2 solution 2 **********************************
+  ALGORITHM problem_1
+VAR
+     htab1,htab2 : HASH_TABLE<INTEGER,STRING>;
+  set1l,set2l,sum : INTEGER;
+BEGIN
+
+  //remplisage des input htab 1 et 2
+  write ("donner la langueur du 1er set ");
+  Read(set1l);
+
+  FOR i FROM 0 TO set1 STEP 1  DO
+   write("entrer le continue du 1er tableaux");
+     Read(input);// insert from user
+    htab1.insert(i,input);
+   END_FOR
+
+  write ("donner la langueur du 2eme set ");
+  Read(set2l);
+
+   FOR i FROM 0 TO set2l STEP 1  DO
+   Read(input);// insert from user
+    htab2.insert(i,input);
+   END_FOR
+// debut 
+ FOR i FROM 0 TO set2l STEP 1  DO
+  FOR j FROM 0 TO set1l STEP 1  DO
+  IF (htab1.get(i)=! htab2.grt(j)) THEN
+      sum+=htab1.get(i);
+   END_FOR
+
+   Read(sum*2);
+   END
