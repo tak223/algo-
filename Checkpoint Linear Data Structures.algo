@@ -105,7 +105,7 @@ BEGIN
 // debut 
  FOR i FROM 0 TO set2l STEP 1  DO
   FOR j FROM 0 TO set1l STEP 1  DO
-  IF (htab1.get(i)=! htab2.grt(j)) THEN
+  IF (htab1.get(i)=! htab2.get(j)) THEN
       test=true;
   ELSE
             test = false;

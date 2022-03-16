@@ -1,0 +1,85 @@
+PROCEDURE dot_product(VAR ps:INTEGER,v1: ARRAY_OF INTEGER[2],v2: ARRAY_OF INTEGER[2])    
+BEGIN
+   FOR i FROM 0 TO v.length STEP 1  DO
+       ps=0;
+       ps += v2[i]*v1[i]
+   END_FOR
+END
+
+
+
+ALGORITHM Dot product
+VAR
+ x,y,ps : INTEGER;
+ tab: ARRAY_OF ARRAY_OF INTEGER[2] [100];
+BEGIN
+write("donne le nombre des vecteurs :");
+Read(n)
+FOR i FROM 1 TO n STEP 1  DO
+    write ("donne le x du vecteur ",i);
+    Read (x);
+    write ("donne le y du vecteur ",i);
+    Read (y);
+    tab [i][1]=x;
+    tab [i][2]=;   
+
+END_FOR
+
+    ps=0;
+
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 1 TO n STEP 1 DO
+             dot_product(ps, tab[i], tab[j]);
+             IF (ps == 0) THEN
+                 write( tab[i] ,"and",tab[j],"are orthogonal");
+             END_IF
+        END_FOR
+    END_FOR
+END
+
+
+
+//*************************
+
+
+FUNCTION dot_product(v1: ARRAY_OF INTEGER[2],v2: ARRAY_OF INTEGER[2]) : INTEGER
+VAR
+   ps:INTEGER; 
+BEGIN
+   FOR i FROM 0 TO v.length STEP 1  DO
+       ps=0;
+       ps += v2[i]*v1[i]
+   END_FOR
+    RETURN ps ;
+END
+
+
+
+ALGORITHM Dot product
+VAR
+ x,y,ps : INTEGER;
+ tab: ARRAY_OF ARRAY_OF INTEGER[2] [100];
+BEGIN
+write("donne le nombre des vecteurs :");
+Read(n)
+FOR i FROM 1 TO n STEP 1  DO
+    write ("donne le x du vecteur ",i);
+    Read (x);
+    write ("donne le y du vecteur ",i);
+    Read (y);
+    tab [i][1]=x;
+    tab [i][2]=;   
+
+END_FOR
+
+
+
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 1 TO n STEP 1 DO
+            ps = dot_product( tab[i], tab[j]);
+             IF (ps == 0) THEN
+                 write( tab[i] ,"and",tab[j],"are orthogonal");
+             END_IF
+        END_FOR
+    END_FOR
+END
