@@ -1,0 +1,51 @@
+PROCEDURE dot_product(v1,v2: ARRAY_OF FLOAT,var ps:FLOAT )
+VAR
+    i: INTEGER;
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+     ps += v1[i]*v2[i];
+    END_FOR
+END
+
+FUNCTION dot_product(v1,v2: ARRAY_OF FLOAT) : FLOAT
+VAR
+     i: INTEGER;
+     ps:FLOAT;
+BEGIN
+   ps:=0;
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+     ps += v1[i]*v2[i];
+    END_FOR
+    RETURN ps ;
+END
+ALGORITHM 
+VAR
+    u1,u2: ARRAY_OF FLOAT;
+   n1,n2, n,i: INTEGER;
+   dot:FLOAT:=0;
+BEGIN
+   i:= 0;
+   read(n);
+   WHILE (i<n) DO
+        read(n1);
+        read(n2);
+        IF (n1<>n2)) THEN
+          write("les tab n'ont pas la meme taille");
+    
+        ELSE
+        FOR j FROM 0 TO n1 STEP 1  DO
+            read(u1[j]);
+            read(u2[j]);
+        END_FOR
+            END_IF
+
+       // dot_product(u1,u2,dot);
+       dot:=  dot_product(u1,u2);
+        IF (dot=0) THEN
+            write("ils sont orth");
+        ELSE
+           write("ils sont pas orth");
+        END_IF
+
+   END_WHILE
+END
