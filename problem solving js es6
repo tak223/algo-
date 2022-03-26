@@ -1,0 +1,213 @@
+1) Return the number (count) of vowels in the given string.
+
+We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+The input string will only consist of lower case letters and/or spaces.
+
+function getCount(str) {
+  var vowelsCount = 0;
+   vowelsCount =( str.match(/[aeiou]/gi) || []).length ;
+  
+  return vowelsCount;
+}
+
+function getCount(str) {
+ return str.split('').filter(c => "aeiouAEIOU".includes(c)).length;
+}
+/*****************************************************************************************************************/
+2) Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+
+function even_or_odd(number) {
+ let result = ((number % 2 ) == 0)? "Even" :"Odd";
+  return result ;
+}
+/*****************************************************************************************************************/
+3)You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+#Examples:
+
+Kata.getMiddle("test") should return "es"
+
+Kata.getMiddle("testing") should return "t"
+
+Kata.getMiddle("middle") should return "dd"
+
+Kata.getMiddle("A") should return "A"
+
+function getMiddle(s)
+    {
+      let l= s.length ;
+    return (result = (l % 2 == 0)? s.substr(l/2-1,2) : s.substr(l/2,1));
+    }
+
+/*****************************************************************************************************************/
+4)Very simple, given an integer or a floating-point number, find its opposite.
+
+Examples:
+
+1: -1
+14: -14
+-34: 34
+
+function opposite(number) {
+    return  -Math.abs(number);
+   }
+
+   function opposite(number) {
+    return  number - number *2
+   }
+   /*****************************************************************************************************************/
+5)This time no story, no theory. The examples below show you how to write function accum:
+
+    Examples:
+    accum("abcd") -> "A-Bb-Ccc-Dddd"
+    accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+    accum("cwAt") -> "C-Ww-Aaa-Tttt"
+
+    function accum(s) {
+        return [...s.toUpperCase()].reduce((acc, cur, index) => acc + "-" + cur + cur.toLowerCase().repeat(index))
+      
+      }
+/*****************************************************************************************************************/
+    6)A square of squares
+    You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
+    
+    However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! That's it! You just have to check if your number of building blocks is a perfect square.
+    
+    Task
+    Given an integral number, determine if it's a square number:
+    
+    In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+    
+    The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+    
+    Examples
+    -1  =>  false
+     0  =>  true
+     3  =>  false
+     4  =>  true
+    25  =>  true
+    26  =>  false
+
+    var isSquare = function(n){
+        return ( Math.sqrt(n) % 1 === 0 ) ? true : false ;
+       }
+       
+/*****************************************************************************************************************/
+7)Trolls are attacking your comment section!
+
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+ 
+   function disemvowel(str) {
+    return str.replace(/[aeiou]/gi, '');
+  }
+/**********************************************************************************************/
+  8) n this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+  Examples
+  highAndLow("1 2 3 4 5");  // return "5 1"
+  highAndLow("1 2 -3 4 5"); // return "5 -3"
+  highAndLow("1 9 3 4 -5"); // return "9 -5"
+  
+  function highAndLow(numbers){
+    const arr = numbers.split(" ").map(item => Number(item)).sort((a,b) => b - a)
+    return  arr[0] + " " + arr[arr.length - 1]
+  }
+  
+/*****************************************************************************************************************/
+  10)Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+  Examples input/output:
+  
+  XO("ooxx") => true
+  XO("xooxx") => false
+  XO("ooxXm") => true
+  XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+  XO("zzoo") => false
+
+  function XO(str) {
+    let arr = str.toLowerCase().split('');
+    return arr.filter(element => element == 'x').length == arr.filter(element => element == 'o').length;
+  }
+  function XO(str) {
+    let x = str.match(/x/gi);
+    let o = str.match(/o/gi);
+    return (x && x.length) === (o && o.length);
+  }
+  
+/*****************************************************************************************************************/
+  11)
+  Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+  For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+  
+  Note: The function accepts an integer and returns an integer
+    function squareDigits(num){
+
+        return Number(('' + num).split('').map(function (val) { return val * val;}).join(''));
+     
+       
+     }
+     
+/*****************************************************************************************************************/
+     12)
+     Simple, given a string of words, return the length of the shortest word(s).
+
+     String will never be empty and you do not need to account for different data types.
+    function findShort(s){
+        const result = Math.min(...s.split(' ').map((word) => word.length));
+         return result;
+       }
+       
+/*****************************************************************************************************************/
+   13) 
+   In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". You function receives one side of the DNA (string, except for Haskell); you need to return the other complementary side. DNA strand is never empty or there is no DNA at all (again, except for Haskell).
+
+    More similar exercise are found here: http://rosalind.info/problems/list-view/ (source)
+    
+    Example: (input --> output)
+    
+    "ATTGC" --> "TAACG"
+    "GTAT" --> "CATA"
+    dnaStrand []        `shouldBe` []
+    dnaStrand [A,T,G,C] `shouldBe` [T,A,C,G]
+    dnaStrand [G,T,A,T] `shouldBe` [C,A,T,A]
+    dnaStrand [A,A,A,A] `shouldBe` [T,T,T,T]
+
+    function DNAStrand(dna){
+   
+        const DNAComplement = {
+          'G' : 'C',
+          'C' : 'G', 
+          'T' : 'A',
+          'A' : 'T'
+        }
+        
+        return dna.split('').map(elem => DNAComplement[elem]).join('')
+      
+        }
+        /*****************************************************************************************************************/
+        14)Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+
+            Examples:
+            Input: 42145 Output: 54421
+            
+            Input: 145263 Output: 654321
+            function descendingOrder(n){
+ 
+                return parseInt(n.toString().split('').sort().reverse().join(""))
+                  
+                }
+    /*****************************************************************************************************************/
+    15)You get an array of numbers, return the sum of all of the positives ones.
+
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+Note: if there is nothing to sum, the sum is default to 0.
+
+
